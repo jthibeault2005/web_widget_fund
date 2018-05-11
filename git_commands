@@ -1,0 +1,4 @@
+git add .
+git commit -m "test.js testing git knowledge"
+git remote add origin https://github.com/jthibeault2005/web_widget_fund.git
+git push origin master
