@@ -1,3 +1,19 @@
+/* 
+https://www.codeproject.com/Articles/81355/Chapter-Creating-Web-Widget-with-HTML-CSS-and-Ja
+functionn WidgetCallback(JSONobject) 
+{
+  var wHelloWorld = JSONobject[0];
+  var wHTML = "";
+  wHTML += (‘<center><div id=""MyWidget"">’);
+  wHTML += (‘<img border=""0"" width="0" height="0" src=""’" />’);
+  wHTML += (‘<a target=""_blank"" href=""’" style="text-decoration: none; ">’);
+  wHTML += ( wTitle + ‘ ‘ + wHelloWorld.text + ‘</a>’);
+  wHTML += (‘</div></center>’);
+  document.getElementById(‘myFirstWidget’).innerHTML = wHTML;
+document.write(wHTML);
+}
+*/
+
 /*
 var dt = new Date();
 document.write(dt.toDateString());
@@ -6,7 +22,8 @@ document.write(dt.toDateString());
 }
 */
 
-//http://alexmarandon.com/articles/web_widget_jquery/
+/*
+http://alexmarandon.com/articles/web_widget_jquery/
 var foo = "Hello World!";
 document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
 
@@ -17,10 +34,15 @@ document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
 })(); // We call our anonymous function immediately
 
 document.write("<p>After our anonymous function foo means '" + foo + '".</p>');
+*/
 
+/*
+http://alexmarandon.com/articles/web_widget_jquery/
+*/
 (function() {
 // Localize jQuery variable
 var jQuery;
+
 /******** Load jQuery if not present *********/
 if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
     var script_tag = document.createElement('script');
@@ -43,6 +65,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
     jQuery = window.jQuery;
     main();
 }
+
 /******** Called once jQuery has loaded ******/
 function scriptLoadHandler() {
     // Restore $ and window.jQuery to their previous values and store the
@@ -51,6 +74,7 @@ function scriptLoadHandler() {
     // Call our main function
     main(); 
 }
+
 /******** Our main function ********/
 function main() { 
     jQuery(document).ready(function($) { 
