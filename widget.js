@@ -79,6 +79,19 @@ function scriptLoadHandler() {
 function main() { 
     jQuery(document).ready(function($) { 
         // We can use jQuery 1.4.2 here
+ /******* Load CSS *******/
+        var css_link = $("<link>", { 
+            rel: "stylesheet", 
+            type: "text/css", 
+            href: "style.css" 
+        });
+        css_link.appendTo('head');          
+
+        /******* Load HTML *******/
+        var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
+        $.getJSON(jsonp_url, function(data) {
+          $('#example-widget-container').html("This data comes from another server: " + data.html);
+        });
     });
 }
 })(); // We call our anonymous function immediately
