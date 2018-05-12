@@ -1,41 +1,3 @@
-/* 
-https://www.codeproject.com/Articles/81355/Chapter-Creating-Web-Widget-with-HTML-CSS-and-Ja
-functionn WidgetCallback(JSONobject) 
-{
-  var wHelloWorld = JSONobject[0];
-  var wHTML = "";
-  wHTML += (‘<center><div id=""MyWidget"">’);
-  wHTML += (‘<img border=""0"" width="0" height="0" src=""’" />’);
-  wHTML += (‘<a target=""_blank"" href=""’" style="text-decoration: none; ">’);
-  wHTML += ( wTitle + ‘ ‘ + wHelloWorld.text + ‘</a>’);
-  wHTML += (‘</div></center>’);
-  document.getElementById(‘myFirstWidget’).innerHTML = wHTML;
-document.write(wHTML);
-}
-*/
-
-/*
-var dt = new Date();
-document.write(dt.toDateString());
-function myDate() {
-document.write(dt.toDateString());
-}
-*/
-
-/*
-http://alexmarandon.com/articles/web_widget_jquery/
-var foo = "Hello World!";
-document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
-
-(function() {
-    // The following code will be enclosed within an anonymous function
-    var foo = "Goodbye World!";
-    document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
-})(); // We call our anonymous function immediately
-
-document.write("<p>After our anonymous function foo means '" + foo + '".</p>');
-*/
-
 /*
 http://alexmarandon.com/articles/web_widget_jquery/
 */
@@ -95,3 +57,17 @@ function main() {
     });
 }
 })(); // We call our anonymous function immediately
+
+/*
+http://alexmarandon.com/articles/web_widget_jquery/
+var foo = "Hello World!";
+document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
+
+(function() {
+    // The following code will be enclosed within an anonymous function
+    var foo = "Goodbye World!";
+    document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
+})(); // We call our anonymous function immediately
+
+document.write("<p>After our anonymous function foo means '" + foo + '".</p>');
+*/
