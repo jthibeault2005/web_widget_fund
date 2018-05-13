@@ -5,6 +5,18 @@ http://alexmarandon.com/articles/web_widget_jquery/
 // Localize jQuery variable
 var jQuery;
 
+/******* jGuage *******/
+var jGauge;
+var script_gauge = document.createElement('script');
+
+script_gauge.setAttribute("type","text/javascript");
+script_gauge.setAttribute("src","http://bernii.github.io/gauge.js/dist/gauge.min.js");
+
+//var element = document.getElementById("widget-container").appendChild(script_gauge);
+//var element = document.getElementById("widget-container");
+//element.innerHTML = script_gauge;
+/******* jGuage *******/
+
 /******** Load jQuery if not present *********/
 if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
     var script_tag = document.createElement('script');
@@ -39,36 +51,22 @@ function scriptLoadHandler() {
 
 /******** Our main function ********/
 function main() { 
-    jQuery(document).ready(function($) { 
-        // We can use jQuery 1.4.2 here
- /******* Load CSS *******/
-        var css_link = $("<link>", { 
-            rel: "stylesheet", 
-            type: "text/css", 
-            href: "style.css" 
-        });
-        css_link.appendTo('head');          
-
-        /******* Load HTML *******/
-        //var jsonp_url = "webwidget_server_script.py?callback=?";
-        var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
-        $.getJSON(jsonp_url, function(data) {
-          $('#widget-container').html("This data comes from another server: " + data.html);
-        });
+  jQuery(document).ready(function($) { 
+    // We can use jQuery 1.4.2 here
+    /******* Load CSS *******/
+    var css_link = $("<link>", { 
+      rel: "stylesheet", 
+      type: "text/css", 
+      href: "style.css" 
     });
+    css_link.appendTo('head');          
+
+    /******* Load HTML *******/
+    var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
+
+    $.getJSON(jsonp_url, function(data) {
+      $('#widget-container').html("This data comes from another server: " + data.html);
+    });
+  });
 }
 })(); // We call our anonymous function immediately
-
-/*
-http://alexmarandon.com/articles/web_widget_jquery/
-var foo = "Hello World!";
-document.write("<p>Before our anonymous function foo means '" + foo + '".</p>');
-
-(function() {
-    // The following code will be enclosed within an anonymous function
-    var foo = "Goodbye World!";
-    document.write("<p>Inside our anonymous function foo means '" + foo + '".</p>');
-})(); // We call our anonymous function immediately
-
-document.write("<p>After our anonymous function foo means '" + foo + '".</p>');
-*/
