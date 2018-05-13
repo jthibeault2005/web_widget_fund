@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset ="utf-8">
-<title>The Pirata</title>
-<link rel="stylesheet" href="styles.css">
-<script src="gauge.min.js" type="text/javascript"></script>
-</head>
-
-<body>
-
-<p>Fundraising Widget</p>
-
-<!-- http://alexmarandon.com/articles/web_widget_jquery/ -->
-<script src="widget.js" type="text/javascript"></script>
-<div id="widget-container"></div>
-
-<!-- http://bernii.github.io/gauge.js/ --
-<script src="gauge_test.js" type="text/javascript"></script> -->
-<div><canvas id="gauge-container"></canvas></div>
-<script>
 var opts = {
   angle: 0.15, // The span of the gauge arc
   lineWidth: 0.44, // The line thickness
@@ -43,7 +22,3 @@ gauge.maxValue = 3000; // set max gauge value
 gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
 gauge.animationSpeed = 32; // set animation speed (32 is default value)
 gauge.set(1250); // set actual value
-</script>
-
-</body>
-</html>

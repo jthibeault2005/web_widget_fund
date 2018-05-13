@@ -50,6 +50,7 @@ function main() {
         css_link.appendTo('head');          
 
         /******* Load HTML *******/
+        //var jsonp_url = "webwidget_server_script.py?callback=?";
         var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
         $.getJSON(jsonp_url, function(data) {
           $('#widget-container').html("This data comes from another server: " + data.html);
