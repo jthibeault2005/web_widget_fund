@@ -7,15 +7,13 @@ var jQuery;
 
 /******* jGuage *******/
 var jGauge;
-var script_gauge = document.createElement('script');
+//var script_gauge = document.createElement('script');
 
-script_gauge.setAttribute("type","text/javascript");
-script_gauge.setAttribute("src","http://bernii.github.io/gauge.js/dist/gauge.min.js");
-
+//script_gauge.setAttribute("type","text/javascript");
+//script_gauge.setAttribute("src","http://bernii.github.io/gauge.js/dist/gauge.min.js");
 //var element = document.getElementById("widget-container").appendChild(script_gauge);
 //var element = document.getElementById("widget-container");
 //element.innerHTML = script_gauge;
-/******* jGuage *******/
 
 /******** Load jQuery if not present *********/
 if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
