@@ -1,20 +1,45 @@
-/*
-http://alexmarandon.com/articles/web_widget_jquery/
-*/
 (function() {
 // Localize jQuery variable
 var jQuery;
 
 /******* jGuage *******/
-var jGauge;
-//var script_gauge = document.createElement('script');
+var jGauge = document.createElement('script');
+jGauge.setAttribute("type","text/javascript");
+jGauge.setAttribute("src","http://bernii.github.io/gauge.js/dist/gauge.min.js");
+document.getElementsByTagName("head")[0].appendChild(jGauge);
+//
+/*
+var canv = document.createElement('canvas');
+canv.setAttribute("id","widget-canvas-container");
+document.getElementById("widget-container").appendChild(canv);
+var opts = {
+  angle: 0.15, // The span of the gauge arc
+  lineWidth: 0.44, // The line thickness
+  radiusScale: 1, // Relative radius
+  pointer: {
+    length: 0.6, // // Relative to gauge radius
+    strokeWidth: 0.035, // The thickness
+    color: '#000000' // Fill color
+  },
+  limitMax: false,     // If false, max value increases automatically if value > maxValue
+  limitMin: false,     // If true, the min value of the gauge will be fixed
+  colorStart: '#6FADCF',   // Colors
+  colorStop: '#8FC0DA',    // just experiment with them
+  strokeColor: '#E0E0E0',  // to see which ones work best for you
+  generateGradient: true,
+  highDpiSupport: true,     // High resolution support
+};
+var canvtarget = document.getElementById('widget-canvas-container'); // your canvas element
+var gauge = new Gauge(canvtarget).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 3000; // set max gauge value
+gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+gauge.animationSpeed = 32; // set animation speed (32 is default value)
+gauge.set(1250); // set actual value
+*/
 
-//script_gauge.setAttribute("type","text/javascript");
-//script_gauge.setAttribute("src","http://bernii.github.io/gauge.js/dist/gauge.min.js");
-//var element = document.getElementById("widget-container").appendChild(script_gauge);
-//var element = document.getElementById("widget-container");
-//element.innerHTML = script_gauge;
-
+/*
+http://alexmarandon.com/articles/web_widget_jquery/
+*/
 /******** Load jQuery if not present *********/
 if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
   var script_tag = document.createElement('script');
@@ -64,6 +89,7 @@ function main() {
     $.getJSON(jsonp_url, function(data) {
       $('#widget-container').html("This data comes from another server: " + data.html);
     });
+    /****** My code ******/
   });
 }
 })(); // We call our anonymous function immediately

@@ -4,45 +4,14 @@
 <meta charset ="utf-8">
 <title>The Pirata</title>
 <link rel="stylesheet" href="style.css">
-<script src="gauge.min.js" type="text/javascript"></script>
 </head>
 
 <body>
 
 <p>Fundraising Widget</p>
 
-<!-- http://alexmarandon.com/articles/web_widget_jquery/ -->
 <script src="widget.js" type="text/javascript"></script>
 <div id="widget-container"></div>
-
-<!-- http://bernii.github.io/gauge.js/ -->
-<div><canvas id="gauge-container"></canvas></div>
-<script>
-var opts = {
-  angle: 0.15, // The span of the gauge arc
-  lineWidth: 0.44, // The line thickness
-  radiusScale: 1, // Relative radius
-  pointer: {
-    length: 0.6, // // Relative to gauge radius
-    strokeWidth: 0.035, // The thickness
-    color: '#000000' // Fill color
-  },
-  limitMax: false,     // If false, max value increases automatically if value > maxValue
-  limitMin: false,     // If true, the min value of the gauge will be fixed
-  colorStart: '#6FADCF',   // Colors
-  colorStop: '#8FC0DA',    // just experiment with them
-  strokeColor: '#E0E0E0',  // to see which ones work best for you
-  generateGradient: true,
-  highDpiSupport: true,     // High resolution support
-  
-};
-var target = document.getElementById('gauge-container'); // your canvas element
-var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-gauge.maxValue = 3000; // set max gauge value
-gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-gauge.animationSpeed = 32; // set animation speed (32 is default value)
-gauge.set(1250); // set actual value
-</script>
 
 </body>
 </html>
