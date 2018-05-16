@@ -1,7 +1,38 @@
 (function() {
-// Localize variables
+// Local variables
 var jQuery;
 var jGauge;
+var opts_gauge = {
+  angle: -0.2, // The span of the gauge arc
+  lineWidth: 0.2, // The line thickness
+  radiusScale: 1, // Relative radius
+  pointer: {
+    length: 0.6, // // Relative to gauge radius
+    strokeWidth: 0.035, // The thickness
+    color: '#000000' // Fill color
+  },
+  limitMax: false,     // If false, max value increases automatically if value > maxValue
+  limitMin: false,     // If true, the min value of the gauge will be fixed
+  colorStart: '#6F6EA0',   // Colors
+  colorStop: '#C0C0DB',    // just experiment with them
+  strokeColor: '#EEEEEE',  // to see which ones work best for you
+  generateGradient: true,
+  highDpiSupport: true,     // High resolution support
+  //Advanced Option
+  staticLabels: {
+    font: "8px sans-serif",  // Specifies font
+    labels: [1000, 1500, 2200, 2600, 3000],  // Print labels at these values
+    color: "#000000",  // Optional: Label text color
+    fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+  },
+  staticZones: [
+    {strokeStyle: "rgb(255,0,0)", min: 0, max: 1000, height: 1.2},
+    {strokeStyle: "rgb(200,100,0)", min: 1000, max: 1500, height: 1.2},
+    {strokeStyle: "rgb(150,150,0)", min: 1500, max: 2200, height: 1.2},
+    {strokeStyle: "rgb(100,200,0)", min: 2200, max: 2600, height: 1.2},
+    {strokeStyle: "rgb(0,255,0)", min: 2600, max: 3000, height: 1.2}
+  ],
+};
 
 /****** Load jGauge ******/
 if (window.jGauge === undefined) {
@@ -52,25 +83,9 @@ function initjGauge() {
   var getDIV = document.getElementById("widget-container");
   canv.setAttribute("id","widget-canvas-container");
   getDIV.appendChild(canv);
-  var opts = {
-    angle: 0.15, // The span of the gauge arc
-    lineWidth: 0.44, // The line thickness
-    radiusScale: 1, // Relative radius
-    pointer: {
-      length: 0.6, // // Relative to gauge radius
-      strokeWidth: 0.035, // The thickness
-      color: '#000000' // Fill color
-    },
-    limitMax: false,     // If false, max value increases automatically if value > maxValue
-    limitMin: false,     // If true, the min value of the gauge will be fixed
-    colorStart: '#6FADCF',   // Colors
-    colorStop: '#8FC0DA',    // just experiment with them
-    strokeColor: '#E0E0E0',  // to see which ones work best for you
-    generateGradient: true,
-    highDpiSupport: true,     // High resolution support
-  };
+  //
   var canvtarget = document.getElementById('widget-canvas-container'); // your canvas element
-  var gauge = new Gauge(canvtarget).setOptions(opts); // create sexy gauge!
+  var gauge = new Gauge(canvtarget).setOptions(opts_gauge); // create sexy gauge!
   gauge.maxValue = 3000; // set max gauge value
   gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
   gauge.animationSpeed = 32; // set animation speed (32 is default value)
@@ -91,11 +106,11 @@ function main() {
     css_link.appendTo('head');          
 
     /****** Load HTML ******/
-    var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
-
-    $.getJSON(jsonp_url, function(data) {
-      $('#widget-container').html("This data comes from another server: " + data.html);
-    });
+    //var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
+    //
+    //$.getJSON(jsonp_url, function(data) {
+    //  $('#widget-container').html("This data comes from another server: " + data.html);
+    //});
   });
   /****** My code ******/
   var jG = initjGauge();
