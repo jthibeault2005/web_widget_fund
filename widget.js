@@ -1,5 +1,5 @@
 (function() {
-// Localize jQuery variable
+// Localize variables
 var jQuery;
 var jGauge;
 
@@ -23,11 +23,21 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
     if (script_tag.readyState) {
       script_tag.onreadystatechange = function () { // For old versions of IE
         if (this.readyState == 'complete' || this.readyState == 'loaded') {
-          scriptLoadHandler();
+          // Restore $ and window.jQuery to their previous values and store the
+          // new jQuery in our local jQuery variable
+          jQuery = window.jQuery.noConflict(true);
+          // Call our main function
+          main();
         }
       };
     } else { // Other browsers
-      script_tag.onload = scriptLoadHandler;
+      script_tag.onload = function() {
+        // Restore $ and window.jQuery to their previous values and store the
+        // new jQuery in our local jQuery variable
+        jQuery = window.jQuery.noConflict(true);
+        // Call our main function
+        main();
+      };
     }
   // Try to find the head, otherwise default to the documentElement
   (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
@@ -67,14 +77,6 @@ function initjGauge() {
   gauge.set(1250); // set actual value
   return gauge;
 };
-/****** Called once jQuery has loaded ******/
-function scriptLoadHandler() {
-  // Restore $ and window.jQuery to their previous values and store the
-  // new jQuery in our local jQuery variable
-  jQuery = window.jQuery.noConflict(true);
-  // Call our main function
-  main(); 
-}
 
 /****** Our main function ******/
 function main() { 
@@ -94,8 +96,8 @@ function main() {
     $.getJSON(jsonp_url, function(data) {
       $('#widget-container').html("This data comes from another server: " + data.html);
     });
-    /****** My code ******/
-    initjGauge();
   });
+  /****** My code ******/
+  var jG = initjGauge();
 }
 })(); // We call our anonymous function immediately
