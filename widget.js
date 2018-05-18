@@ -1,5 +1,5 @@
 (function() {
-// Local variables
+/****** Local Variables ******/
 var jQuery;
 var jGauge;
 var opts_gauge = {
@@ -77,12 +77,17 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
   jQuery = window.jQuery;
   main();
 }
+
 /****** Initialize the Gauge ******/
 function initjGauge() {
   var canv = document.createElement('canvas');
+  var spa = document.createElement('span');
   var getDIV = document.getElementById("widget-container");
   canv.setAttribute("id","widget-canvas-container");
+  spa.setAttribute("id","gauge-value");
+  //spa.setAttribute("style","text-align:center");
   getDIV.appendChild(canv);
+  getDIV.appendChild(spa);
   //
   var canvtarget = document.getElementById('widget-canvas-container'); // your canvas element
   var gauge = new Gauge(canvtarget).setOptions(opts_gauge); // create sexy gauge!
@@ -90,6 +95,13 @@ function initjGauge() {
   gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
   gauge.animationSpeed = 32; // set animation speed (32 is default value)
   gauge.set(1250); // set actual value
+  //
+  var textRenderer = new TextRenderer(document.getElementById("gauge-value"));
+  textRenderer.render = function(g){
+    this.el.innerHTML = "$" + (g.displayedValue).toFixed(2);
+  };
+  gauge.setTextField(textRenderer);
+  //
   return gauge;
 };
 
