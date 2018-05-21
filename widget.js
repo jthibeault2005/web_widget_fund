@@ -133,7 +133,15 @@ function initjGauge() {
 
 /****** Our main function ******/
 function main() { 
+  /****** My code ******/
+  var jG = initjGauge();
+  jG.set(2556.44);
   jQuery(document).ready(function($) { 
+    //https://stackoverflow.com/questions/6809053/simple-jquery-php-and-jsonp-example
+    //var w_url = "http://blindpirate.org/widget_cash.php?callback=?"
+    //$.getJSON(w_url,'firstname=Jeff',function(res){
+    //  alert('Your name is '+res.fullname);
+    //});
     // We can use jQuery 1.4.2 here
     /****** Load CSS ******/
     //var css_link = $("<link>", { 
@@ -150,8 +158,5 @@ function main() {
     //  $('#widget-container').html("This data comes from another server: " + data.html);
     //});
   });
-  /****** My code ******/
-  var jG = initjGauge();
-  jG.set(2556.44);
 }
 })(); // We call our anonymous function immediately
