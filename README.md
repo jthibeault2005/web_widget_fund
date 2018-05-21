@@ -1,5 +1,17 @@
 # web_widget_fund
-#
+
+## Purpose
+widget.js is setup to be a self-contained widget which is implemented with two lines of html code (probably in the index.html).  This widget loads a gauge that measures the funds one is raising.
+
+## gauge.js
+The gauge code is provided by:
+[gauge.js by Bernii](http://bernii.github.io/gauge.js/)
+
+## How to implement
+1. Load these two lines into the html code (the page that will display the widget):
+⋅⋅⋅<script src="widget.js" type="text/javascript"></script>
+⋅⋅⋅<div id="widget-container"></div>
+2. Then place the widget.js in the corresponding directory listed in the script tag above.
 
 <!--
 git add .
