@@ -82,20 +82,36 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
 function initjGauge() {
   var canv = document.createElement('canvas');
   var spa = document.createElement('span');
+  var hone = document.createElement('H1');
+  var honetext = document.createTextNode("Makerspace Fundraiser");
   var getDIV = document.getElementById("widget-container");
   //
+  hone.setAttribute("id","gauge-header");
+  hone.setAttribute("align","center");
+  hone.appendChild(honetext); 
   canv.setAttribute("id","widget-canvas-container");
   spa.setAttribute("id","gauge-value");
   //
+  //CSS styling
   getDIV.style.marginBottom = "10px";
   getDIV.style.border = "2px solid black";
   getDIV.style.borderRadius = "25px";
-  getDIV.style.padding = "30px";
-  getDIV.style.width = "300px";
-  getDIV.style.height = "150px";
+  getDIV.style.padding = "25px";
+  getDIV.style.width = "250px";
+  getDIV.style.height = "auto";
+  hone.style.font = "bold 20px arial,serif";
+  hone.style.width = "auto";
+  canv.style.width = "250px";
+  canv.style.height = "140px";
   spa.style.color = "blue";
-  spa.style.font = "italic bold 20px arial,serif";
+  spa.style.font = "bold 20px arial,serif";
   //
+  //Display borders for Diagnostics
+  //hone.style.border = "2px solid black";
+  //canv.style.border = "2px solid black";
+  //spa.style.border = "2px solid black";
+  //
+  getDIV.appendChild(hone);
   getDIV.appendChild(canv);
   getDIV.appendChild(spa);
   //
