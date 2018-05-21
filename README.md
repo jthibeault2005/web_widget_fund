@@ -9,8 +9,8 @@ The gauge code is provided by:
 
 ## How to implement
 1. Load these two lines into the html code (the page that will display the widget):
-⋅⋅⋅<script src="widget.js" type="text/javascript"></script>
-⋅⋅⋅<div id="widget-container"></div>
+<br><script src="widget.js" type="text/javascript"></script>
+<br><div id="widget-container"></div>
 2. Then place the widget.js in the corresponding directory listed in the script tag above.
 
 <!--
