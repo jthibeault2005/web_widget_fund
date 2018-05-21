@@ -19,8 +19,10 @@ var opts_gauge = {
   generateGradient: true,
   highDpiSupport: true,     // High resolution support
   //Advanced Option
+  //staticLabels and staticZones need to be changed in such a way to have their
+  // value match.  These are used to create colors and labels around the gauge.
   staticLabels: {
-    font: "8px sans-serif",  // Specifies font
+    font: "8px sans-serif",
     labels: [1000, 1500, 2200, 2600, 3000],  // Print labels at these values
     color: "#000000",  // Optional: Label text color
     fractionDigits: 0  // Optional: Numerical precision. 0=round off.
@@ -79,20 +81,23 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
 }
 
 /****** Initialize the Gauge ******/
+//Set up the gauge and create the cascade of ids and elements.
 function initjGauge() {
+  //Create elements to implement through the div in the webpage.
+  // This div has the id of "widget-container"
   var canv = document.createElement('canvas');
   var spa = document.createElement('span');
   var hone = document.createElement('H1');
+  //honetext is the Headline in the widget
   var honetext = document.createTextNode("Makerspace Fundraiser");
   var getDIV = document.getElementById("widget-container");
-  //
+  //Create ids for the newly created elements.
   hone.setAttribute("id","gauge-header");
   hone.setAttribute("align","center");
   hone.appendChild(honetext); 
   canv.setAttribute("id","widget-canvas-container");
   spa.setAttribute("id","gauge-value");
-  //
-  //CSS styling
+  //CSS styling for the newly created elements.
   getDIV.style.marginBottom = "10px";
   getDIV.style.border = "2px solid black";
   getDIV.style.borderRadius = "25px";
@@ -105,29 +110,33 @@ function initjGauge() {
   canv.style.height = "140px";
   spa.style.color = "blue";
   spa.style.font = "bold 20px arial,serif";
-  //
   //Display borders for Diagnostics
   //hone.style.border = "2px solid black";
   //canv.style.border = "2px solid black";
   //spa.style.border = "2px solid black";
-  //
+  //Append the newly created elements to the div element,
+  // which resides in the two lines on the webpage.
   getDIV.appendChild(hone);
   getDIV.appendChild(canv);
   getDIV.appendChild(spa);
-  //
+  //These variables will be the gauge that will be contained by the
+  // canvas element.  This will also be where the long list of settings
+  // in opts_gauge are loaded.
   var canvtarget = document.getElementById('widget-canvas-container'); // your canvas element
   var gauge = new Gauge(canvtarget).setOptions(opts_gauge); // create sexy gauge!
-  gauge.maxValue = 3000; // set max gauge value
-  gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
-  gauge.animationSpeed = 32; // set animation speed (32 is default value)
-  gauge.set(1250); // set actual value
-  //
+  //This sets the values and parameters that will be displayed on the gauge.
+  gauge.maxValue = 3000;
+  gauge.setMinValue(0);
+  gauge.animationSpeed = 32;
+  gauge.set(1250);
+  //This creates the label and places it in the span element based on the
+  // id "gauge-value"
   var textRenderer = new TextRenderer(document.getElementById("gauge-value"));
   textRenderer.render = function(g){
     this.el.innerHTML = "$" + (g.displayedValue).toFixed(2);
   };
   gauge.setTextField(textRenderer);
-  //
+  //Return the gauge element so it can be modified after it's been initiated.
   return gauge;
 };
 
