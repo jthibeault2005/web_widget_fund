@@ -83,9 +83,19 @@ function initjGauge() {
   var canv = document.createElement('canvas');
   var spa = document.createElement('span');
   var getDIV = document.getElementById("widget-container");
+  //
   canv.setAttribute("id","widget-canvas-container");
   spa.setAttribute("id","gauge-value");
-  //spa.setAttribute("style","text-align:center");
+  //
+  getDIV.style.marginBottom = "10px";
+  getDIV.style.border = "2px solid black";
+  getDIV.style.borderRadius = "25px";
+  getDIV.style.padding = "30px";
+  getDIV.style.width = "300px";
+  getDIV.style.height = "150px";
+  spa.style.color = "blue";
+  spa.style.font = "italic bold 20px arial,serif";
+  //
   getDIV.appendChild(canv);
   getDIV.appendChild(spa);
   //
@@ -110,12 +120,12 @@ function main() {
   jQuery(document).ready(function($) { 
     // We can use jQuery 1.4.2 here
     /****** Load CSS ******/
-    var css_link = $("<link>", { 
-      rel: "stylesheet", 
-      type: "text/css", 
-      href: "style.css" 
-    });
-    css_link.appendTo('head');          
+    //var css_link = $("<link>", { 
+    //  rel: "stylesheet", 
+    //  type: "text/css", 
+    //  href: "style.css" 
+    //});
+    //css_link.appendTo('head');          
 
     /****** Load HTML ******/
     //var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
@@ -126,5 +136,6 @@ function main() {
   });
   /****** My code ******/
   var jG = initjGauge();
+  jG.set(2556.44);
 }
 })(); // We call our anonymous function immediately

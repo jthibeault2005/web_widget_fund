@@ -1,9 +1,0 @@
-#widget-container {
- margin-bottom: 10px;
- border: 2px solid black;
- /* Rounded edges */
- border-radius: 25px;
- padding: 20px; 
- width: 300px;
- height: 150px;
-}
