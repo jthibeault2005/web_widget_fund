@@ -1,10 +1,10 @@
 # web_widget_fund
 #
-#!/bin/bash
 
-git add . &&
-git commit -m "Working widget container Just need to add calls to server backend" &&
-git remote add origin https://github.com/jthibeault2005/web_widget_fund.git &&
+<!--
+git add .
+git commit -m "Working widget container Just need to add calls to server backend"
+git remote add origin https://github.com/jthibeault2005/web_widget_fund.git
 git push origin master
 
 #https://gist.github.com/hofmannsven/6814451
@@ -22,4 +22,4 @@ git push origin master
 #
 #Using Git overall and remote functions:
 #  http://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html
-
+-->
