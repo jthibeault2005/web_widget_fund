@@ -142,30 +142,25 @@ function initjGauge() {
 
 /****** Our main function ******/
 function main() { 
-  /****** My code ******/
-  var jG = initjGauge();
-  jG.set(2556.44);
+  /****** jQuery 1.4.2 ******/
   jQuery(document).ready(function($) { 
-    //https://stackoverflow.com/questions/6809053/simple-jquery-php-and-jsonp-example
-    //var w_url = "http://blindpirate.org/widget_cash.php?callback=?"
-    //$.getJSON(w_url,'firstname=Jeff',function(res){
-    //  alert('Your name is '+res.fullname);
-    //});
-    // We can use jQuery 1.4.2 here
-    /****** Load CSS ******/
-    //var css_link = $("<link>", { 
-    //  rel: "stylesheet", 
-    //  type: "text/css", 
-    //  href: "style.css" 
-    //});
-    //css_link.appendTo('head');          
+    /****** My code ******/
+    var jG = initjGauge();
+    jG.set(2556.44);
 
-    /****** Load HTML ******/
-    //var jsonp_url = "http://al.smeuh.org/cgi-bin/webwidget_tutorial.py?callback=?";
-    //
-    //$.getJSON(jsonp_url, function(data) {
-    //  $('#widget-container').html("This data comes from another server: " + data.html);
-    //});
+    /****** Server Callback ******/
+    //https://stackoverflow.com/questions/6809053/simple-jquery-php-and-jsonp-example
+    var w_url = "http://blindpirate.org/misc_scripts/widget_cash.php?callback=?"
+    $.getJSON(w_url, 'yesno=yes', function(f) {
+      jG.set(f.funds);
+    });
+    /****** PHP on Server ******/
+    //<?php
+    //$fname = $_GET['yesno'];
+    //if($fname=='yes') {
+    //  echo $_GET['callback'] . '(' . "{'funds' : '2599.55'}" . ')';
+    //}
+    //?>
   });
 }
 })(); // We call our anonymous function immediately
