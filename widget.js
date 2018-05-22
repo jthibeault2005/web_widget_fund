@@ -108,7 +108,7 @@ function initjGauge() {
   hone.style.font = "bold 20px arial,serif";
   hone.style.width = "auto";
   canv.style.width = "250px";
-  canv.style.height = "140px";
+  canv.style.height = "150px";
   spa.style.color = "blue";
   spa.style.font = "bold 20px arial,serif";
   //Display borders for Diagnostics
