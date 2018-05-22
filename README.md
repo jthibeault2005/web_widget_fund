@@ -13,10 +13,24 @@ The gauge code is provided by:
 <script src="widget.js" type="text/javascript"></script>
 <div id="widget-container"></div>
 ```
-2. Place the widget.js in the corresponding directory listed in the script tag above.
+2. Place the widget.js file in the directory defined by the src attribute in the script element.
 3. Update this section of code in widget.js to contact the correct server so the widget has the correct funds raised.
 ```
 var w_url = "http://blindpirate.org/misc_scripts/widget_cash.php?callback=?"
+```
+4. To change the title within the widget you should change this line:
+```
+var titleW = "Makerspace Fundraiser";
+```
+5. To change tick values and their corresponding colors you should change these lines within the gauge_opts variable:
+```
+staticLabels: {
+  labels: [1000, 1500],
+},
+staticZones: [
+  {strokeStyle: "rgb(255,0,0)", min: 0, max: 1000, height: 1.2},
+  {strokeStyle: "rgb(200,100,0)", min: 1000, max: 1500, height: 1.2},
+],
 ```
 
 <!--

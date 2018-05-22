@@ -2,6 +2,7 @@
 /****** Local Variables ******/
 var jQuery;
 var jGauge;
+var titleW = "Makerspace Fundraiser";
 var opts_gauge = {
   angle: -0.2, // The span of the gauge arc
   lineWidth: 0.2, // The line thickness
@@ -89,7 +90,7 @@ function initjGauge() {
   var spa = document.createElement('span');
   var hone = document.createElement('H1');
   //honetext is the Headline in the widget
-  var honetext = document.createTextNode("Makerspace Fundraiser");
+  var honetext = document.createTextNode(titleW);
   var getDIV = document.getElementById("widget-container");
   //Create ids for the newly created elements.
   hone.setAttribute("id","gauge-header");
