@@ -17,9 +17,6 @@ The gauge code is provided by:
 3. Update this section of code in widget.js to contact the correct server so the widget has the correct funds raised.
 ```
 var w_url = "http://blindpirate.org/misc_scripts/widget_cash.php?callback=?"
-$.getJSON(w_url, 'yesno=yes', function(f) {
-  jG.set(f.funds);
-});
 ```
 
 <!--
