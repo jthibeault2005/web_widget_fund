@@ -34,6 +34,9 @@ staticZones: [
 ```
 
 <!--
+This project was for Manchester Makerspace in Manchester, NH.
+May 10-22, 2018
+
 git add .
 git commit -m "Working widget container Just need to add calls to server backend"
 git remote add origin https://github.com/jthibeault2005/web_widget_fund.git
