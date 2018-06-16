@@ -151,10 +151,12 @@ function main() {
 
     /****** Server Callback ******/
     //https://stackoverflow.com/questions/6809053/simple-jquery-php-and-jsonp-example
-    var w_url = "http://blindpirate.org/misc_scripts/widget_cash.php?callback=?"
-    $.getJSON(w_url, 'yesno=yes', function(f) {
-      jG.set(f.funds);
-    });
+    // The lines below work but have been commented
+    //for gh-pages
+    //var w_url = "http://blindpirate.org/misc_scripts/widget_cash.php?callback=?"
+    //$.getJSON(w_url, 'yesno=yes', function(f) {
+    //  jG.set(f.funds);
+    //});
     /****** PHP on Server ******/
     //<?php
     //$fname = $_GET['yesno'];
