@@ -1,5 +1,8 @@
 # web_widget_fund
 
+## Working Example
+[widget.js](https://jthibeault2005.github.io/web_widget_fund/)
+
 ## Purpose
 widget.js is setup to be a self-contained widget which is implemented with two lines of html code (probably in the index.html).  This widget loads a gauge that measures the funds one is raising.
 
